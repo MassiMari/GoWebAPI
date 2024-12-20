@@ -13,11 +13,16 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: Artefatto
+- task: Go@0
+  inputs:
+    command: 'get'
+    arguments: '-v all'
+    workingDirectory: '$(System.DefaultWorkingDirectory)' 
     
 - task: GoTool@0
   inputs:
-    version: '1.15'
+    version: '1.23.0'
 
 - task: Go@0
   inputs:
